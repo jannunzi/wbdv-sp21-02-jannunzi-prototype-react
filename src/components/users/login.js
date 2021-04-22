@@ -15,7 +15,6 @@ const Login = () => {
                     history.push("/profile")
                 }
             })
-        history.push("/profile")
     }
 
     return(

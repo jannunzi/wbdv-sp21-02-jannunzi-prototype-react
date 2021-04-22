@@ -1,4 +1,4 @@
-const USER_API = "http://localhost:4000/api/users";
+const USER_API = "http://localhost:8080/api/users";
 
 const profile = () => {
     return fetch(`${USER_API}/profile`, {
@@ -32,8 +32,23 @@ const register = (credentials) => {
         .then(response => response.json())
 }
 
-const logout = () => {}
+const logout = () => {
+    return fetch(`${USER_API}/logout`, {
+        method: "POST",
+        credentials: "include"
+    }).then(() => {})
+}
+
+const findAllMyFriends = () => {
+    return fetch(USER_API)
+        .then(response => response.json())
+}
+
+const findUserById = (uid) => {
+    return fetch(`${USER_API}/${uid}`)
+        .then(response => response.json())
+}
 
 export default {
-    register, login, logout, profile
+    register, login, logout, profile, findAllMyFriends, findUserById
 }
